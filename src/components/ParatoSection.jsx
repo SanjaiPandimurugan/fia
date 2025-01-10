@@ -2,11 +2,11 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Line, ComposedChart } from 'recharts';
 
 const data = [
-  { name: 'core', complaints: 700, pareto: 104, status: 'Completed' },
+  { name: 'core', complaints: 700, pareto: 1004, status: 'Completed' },
   { name: 'thread', complaints: 300, pareto: 97, status: 'On Work' },
-  { name: 'core plug', complaints: 200, pareto: 22, status: 'Pending' },
-  { name: 'no gauge', complaints: 100, pareto: 8, status: 'Completed' },
-  { name: 'n', complaints: 50, pareto: 6, status: 'On Work' },
+  { name: 'core plug', complaints: 200, pareto: 220, status: 'Pending' },
+  { name: 'no gauge', complaints: 100, pareto: 180, status: 'Completed' },
+  { name: 'n', complaints: 50, pareto: 100, status: 'On Work' },
 ];
 
 const ParatoSection = () => {
@@ -66,7 +66,7 @@ const ParatoSection = () => {
                 radius={[4, 4, 0, 0]}
               />
               <Line 
-                yAxisId="left"
+                yAxisId="left" 
                 type="monotone" 
                 dataKey="pareto" 
                 stroke="#8B4513"
@@ -103,21 +103,21 @@ const ParatoSection = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead>
                 <tr className="bg-gradient-to-r from-[#8B4513] to-[#E97451] text-white">
-                  <th className="px-4 py-3 text-left text-xs font-medium">COMMENTS</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium">PARATO</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium">STATUS</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium">COMMENTS</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium">PARATO</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium">STATUS</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 {data.map((item, index) => (
                   <tr 
                     key={index}
-                    className="hover:bg-orange-50 transition-colors duration-150"
+                    className="hover:bg-orange-50 transition-colors duration-150 border-b border-gray-200"
                   >
-                    <td className="px-4 py-3 text-sm text-gray-900 capitalize">{item.name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">{item.pareto}</td>
-                    <td className="px-4 py-3 text-sm">
-                      <div className="flex items-center gap-2">
+                    <td className="px-4 py-3 text-sm text-gray-900 capitalize border-r border-gray-200">{item.name}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 border-r border-gray-200 text-center">{item.pareto}</td>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="flex items-center justify-center gap-2">
                         <div 
                           className="w-1.5 h-1.5 rounded-full"
                           style={{ backgroundColor: getStatusColor(item.status) }}
