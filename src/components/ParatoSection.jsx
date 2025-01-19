@@ -26,16 +26,6 @@ const ParatoSection = () => {
       <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
         <div className="border-b border-[#8B4513] py-3 px-4 flex items-center justify-between bg-gradient-to-r from-white to-orange-50">
           <span className="text-[#8B4513] text-sm font-medium">COMPLAINTS ANALYSIS</span>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#E97451]"></div>
-              <span className="text-xs text-gray-500">Complaints</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#8B4513]"></div>
-              <span className="text-xs text-gray-500">Cumulative %</span>
-            </div>
-          </div>
         </div>
         
         <div className="p-4 h-[300px]">
@@ -90,16 +80,7 @@ const ParatoSection = () => {
       <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
         <div className="border-b border-[#8B4513] py-3 px-4 flex items-center justify-between bg-gradient-to-r from-white to-orange-50">
           <span className="text-[#8B4513] text-sm font-medium">PARATO ANALYSIS</span>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#E97451]"></div>
-              <span className="text-xs text-gray-500">Complaints</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#8B4513]"></div>
-              <span className="text-xs text-gray-500">Cumulative %</span>
-            </div>
-          </div>
+    
         </div>
         
         <div className="p-4">
