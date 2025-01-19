@@ -2,11 +2,11 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Line, ComposedChart } from 'recharts';
 
 const data = [
-  { name: 'core', complaints: 700, pareto: 1004, status: 'Completed' },
-  { name: 'thread', complaints: 300, pareto: 97, status: 'On Work' },
-  { name: 'core plug', complaints: 200, pareto: 220, status: 'Pending' },
-  { name: 'no gauge', complaints: 100, pareto: 180, status: 'Completed' },
-  { name: 'n', complaints: 50, pareto: 100, status: 'On Work' },
+  { name: 'Core', complaints: 700, pareto: 90, status: 'Completed' },
+  { name: 'Thread', complaints: 300, pareto: 70, status: 'On Work' },
+  { name: 'Core Plug', complaints: 200, pareto: 60, status: 'Pending' },
+  { name: 'No Gauge', complaints: 100, pareto: 10, status: 'Completed' },
+  { name: 'N', complaints: 50, pareto: 20, status: 'On Work' },
 ];
 
 const ParatoSection = () => {
@@ -52,6 +52,14 @@ const ParatoSection = () => {
                 tick={{ fill: '#666', fontSize: 12 }}
                 axisLine={{ stroke: '#8B4513' }}
               />
+              <YAxis 
+                yAxisId="right"
+                orientation="right"
+                domain={[0, 100]}
+                tickFormatter={(value) => `${value}%`}
+                tick={{ fill: '#666', fontSize: 12 }}
+                axisLine={{ stroke: '#8B4513' }}
+              />
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: 'white',
@@ -66,7 +74,7 @@ const ParatoSection = () => {
                 radius={[4, 4, 0, 0]}
               />
               <Line 
-                yAxisId="left" 
+                yAxisId="right"
                 type="monotone" 
                 dataKey="pareto" 
                 stroke="#8B4513"
@@ -82,18 +90,14 @@ const ParatoSection = () => {
       <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
         <div className="border-b border-[#8B4513] py-3 px-4 flex items-center justify-between bg-gradient-to-r from-white to-orange-50">
           <span className="text-[#8B4513] text-sm font-medium">PARATO ANALYSIS</span>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              <span className="text-xs text-gray-500">Completed</span>
-            </div>
+          <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
               <div className="w-2 h-2 rounded-full bg-[#E97451]"></div>
-              <span className="text-xs text-gray-500">On Work</span>
+              <span className="text-xs text-gray-500">Complaints</span>
             </div>
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-red-600"></div>
-              <span className="text-xs text-gray-500">Pending</span>
+              <div className="w-2 h-2 rounded-full bg-[#8B4513]"></div>
+              <span className="text-xs text-gray-500">Cumulative %</span>
             </div>
           </div>
         </div>
@@ -105,7 +109,7 @@ const ParatoSection = () => {
                 <tr className="bg-gradient-to-r from-[#8B4513] to-[#E97451] text-white">
                   <th className="px-4 py-3 text-center text-xs font-medium">COMMENTS</th>
                   <th className="px-4 py-3 text-center text-xs font-medium">PARATO</th>
-                  <th className="px-4 py-3 text-center text-xs font-medium">STATUS</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium">PERCENTAGE</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
@@ -115,18 +119,8 @@ const ParatoSection = () => {
                     className="hover:bg-orange-50 transition-colors duration-150 border-b border-gray-200"
                   >
                     <td className="px-4 py-3 text-sm text-gray-900 capitalize border-r border-gray-200">{item.name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900 border-r border-gray-200 text-center">{item.pareto}</td>
-                    <td className="px-4 py-3 text-sm text-center">
-                      <div className="flex items-center justify-center gap-2">
-                        <div 
-                          className="w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: getStatusColor(item.status) }}
-                        ></div>
-                        <span style={{ color: getStatusColor(item.status) }}>
-                          {item.status}
-                        </span>
-                      </div>
-                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-900 border-r border-gray-200 text-center">{item.complaints}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 text-center">{item.pareto}%</td>
                   </tr>
                 ))}
               </tbody>

@@ -1,4 +1,5 @@
 import React from 'react';
+import logoMainfia from '../assets/logomainfia.webp';
 
 const Header = () => {
   const getCurrentShift = () => {
@@ -26,35 +27,21 @@ const Header = () => {
     <div className="bg-white px-4 py-2 flex justify-between items-center shadow-md border-b border-[#E97451]">
       {/* Left Section */}
       <div className="flex items-center gap-4">
-        {/* Logo Upload Section */}
-        <div className="flex items-center gap-1.5 text-gray-500">
-          <div className="w-6 h-6 border border-gray-300 rounded flex items-center justify-center">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-4 w-4" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
-              />
-            </svg>
-          </div>
-          <span className="text-xs">Upload Logo</span>
+        {/* Logo Section */}
+        <div className="flex items-center gap-1.5">
+          <img 
+            src={logoMainfia} 
+            alt="Mainfia Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
-
 
         {/* Divider */}
         <div className="h-5 w-px bg-[#E97451] opacity-30"></div>
 
         {/* Title and Description */}
         <div className="flex flex-col">
-          <h1 className="text-lg font-bold text-gray-800]">DASHBOARD TITLE</h1>
-          <p className="text-xs text-gray-800">Some dummy description text</p>
+          <h1 className="text-lg font-bold text-gray-800">PARATO PAGE</h1>
         </div>
       </div>
 

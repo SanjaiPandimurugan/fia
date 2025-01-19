@@ -92,7 +92,8 @@ const FirstRow = () => {
 
   const parts = [
     { number: '12345678', name: 'BIG CYLINDER' },
-    { number: '987654321', name: 'SMALL CYLINDER' }
+    { number: '987654321', name: 'SMALL CYLINDER' },
+    { number: 'Both', name: 'ANALYSIS FOR PARTS' }
   ];
 
   // Replace the original part name and number divs with these components
@@ -100,14 +101,15 @@ const FirstRow = () => {
     <div className="bg-white h-[164px] border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group hover:border-[#8B4513]">
       <div className="border-b border-[#8B4513] py-3 px-3 flex items-center justify-between bg-gradient-to-r from-white to-orange-50">
         <span className="text-[#8B4513] text-xm font-medium">PART NAME</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#8B4513] opacity-50" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clipRule="evenodd" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#8B4513] opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       </div>
       <div className="py-4 px-3 group-hover:bg-orange-50 transition-colors">
         <div className="flex items-center justify-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E97451]" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#E97451]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <ellipse cx="12" cy="5" rx="8" ry="3" strokeWidth="2"/>
+            <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" strokeWidth="2"/>
           </svg>
           <span className="text-lg text-gray-800 font-bold">{selectedPart.name}</span>
         </div>
@@ -120,41 +122,45 @@ const FirstRow = () => {
     <div className="bg-white h-[164px] border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-visible group hover:border-[#8B4513] relative">
       <div className="border-b border-[#8B4513] py-3 px-3 flex items-center justify-between bg-gradient-to-r from-white to-orange-50">
         <span className="text-[#8B4513] text-xm font-medium">PART NUMBER</span>
-        <button 
-          onClick={() => document.getElementById('partDropdown').classList.toggle('hidden')}
-          className="focus:outline-none"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#8B4513] opacity-50" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
       </div>
       
-      <div className="py-4 px-3 group-hover:bg-orange-50 transition-colors">
-        <div className="flex items-center justify-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E97451]" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+      <div className="py-4 px-3">
+        <div 
+          onClick={() => document.getElementById('partDropdown').classList.toggle('hidden')}
+          className="w-full border border-gray-300 rounded-md px-3 py-2 cursor-pointer hover:border-[#E97451] transition-colors flex items-center justify-between bg-white"
+        >
+          <div className="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E97451]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="2"/>
+              <path d="M9 8h6m-6 4h6m-6 4h6" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            <span className="text-lg text-gray-800 font-bold">{selectedPart.number}</span>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E97451]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
           </svg>
-          <span className="text-lg text-gray-800 font-bold">{selectedPart.number}</span>
         </div>
-        <div className="text-xs text-center text-gray-500 mt-1">Serial Number</div>
+        <div className="text-xs text-center text-gray-500 mt-2">Serial Number</div>
       </div>
-  
+
       {/* Dropdown Menu */}
       <div 
         id="partDropdown" 
-        className="hidden absolute top-[100%] left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-50 mt-1"
-        style={{ minWidth: '100%' }}
+        className="hidden absolute top-[60%] left-3 right-3 bg-white border border-[#E97451] rounded-md shadow-lg z-50 mt-1"
       >
         {parts.map(part => (
           <div
             key={part.number}
-            className="px-4 py-2 hover:bg-orange-50 cursor-pointer text-sm border-b last:border-b-0"
+            className="px-4 py-2.5 hover:bg-orange-50 cursor-pointer text-sm border-b last:border-b-0 flex items-center gap-2"
             onClick={() => {
               setSelectedPart(part);
               document.getElementById('partDropdown').classList.add('hidden');
             }}
           >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#E97451]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="2"/>
+              <path d="M8 12h8m-4-4v8" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
             {part.number}
           </div>
         ))}
