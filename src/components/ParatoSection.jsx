@@ -107,7 +107,7 @@ const ParatoSection = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead>
                 <tr className="bg-gradient-to-r from-[#8B4513] to-[#E97451] text-white">
-                  <th className="px-4 py-3 text-center text-xs font-medium">COMMENTS</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium">PARTS</th>
                   <th className="px-4 py-3 text-center text-xs font-medium">PARATO</th>
                   <th className="px-4 py-3 text-center text-xs font-medium">PERCENTAGE</th>
                 </tr>
